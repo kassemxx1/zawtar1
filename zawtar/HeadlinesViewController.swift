@@ -13,6 +13,7 @@ import Firebase
 class HeadlinesCell: UITableViewCell {
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var title: UILabel!
+    
 //@IBOutlet weak var details: UILabel!
 //@IBOutlet weak var date: UILabel!
 }
@@ -20,6 +21,7 @@ class HeadlinesViewController: UIViewController {
     
     @IBOutlet weak var headlinesTableView: UITableView!
     
+    @IBOutlet weak var PageControl: UIPageControl!
     
     var pageNumber = 0
     var token: Int64?
@@ -28,10 +30,14 @@ class HeadlinesViewController: UIViewController {
     override func viewDidLoad() {
         FirebaseApp.configure()
         super.viewDidLoad()
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
       retrieve()
-    
-        
+
 }
 }
 
@@ -123,7 +129,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             self.headlinesTableView.reloadData()
             
         })
-        
+     
         
         
         

@@ -8,5 +8,9 @@ target 'zawtar' do
   # Pods for zawtar
     pod 'Firebase'
     pod 'Firebase/Database'
-    pod 'Firebase/Storage'	
+    pod 'Firebase/Storage'
+    pod 'SwiftyJSON'
+    pod 'Alamofire'
+    pod 'Firebase/Messaging'
+    pod 'Firebase/Core'
 end

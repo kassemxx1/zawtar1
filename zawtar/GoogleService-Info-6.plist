@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>523537217535-6h4cvtgts7b46avifp4urk8q62gn8ehn.apps.googleusercontent.com</string>
+	<string>102990807718-p4bb81t13b8aesrkrusckg0ljjv3qlft.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.523537217535-6h4cvtgts7b46avifp4urk8q62gn8ehn</string>
+	<string>com.googleusercontent.apps.102990807718-p4bb81t13b8aesrkrusckg0ljjv3qlft</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB0yKeO1eDgaS8lF8dfx9r6DwfeCbgMN1M</string>
+	<string>AIzaSyDs6oK3_6ODdNHVJ0i1tHI3wHez3MWMgHA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>523537217535</string>
+	<string>102990807718</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.kassem-abboud.zawtar</string>
 	<key>PROJECT_ID</key>
-	<string>zawtar-ed9d6</string>
+	<string>zawtar-ae0f1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>zawtar-ed9d6.appspot.com</string>
+	<string>zawtar-ae0f1.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:523537217535:ios:444518e4aa1dcc43</string>
+	<string>1:102990807718:ios:c28edfbab75b6724</string>
 	<key>DATABASE_URL</key>
-	<string>https://zawtar-ed9d6.firebaseio.com</string>
+	<string>https://zawtar-ae0f1.firebaseio.com</string>
 </dict>
 </plist>
