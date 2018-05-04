@@ -11,9 +11,11 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     @IBOutlet weak var previewImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
-
+    
+    
     
     
     var previewImage: UIImage?
@@ -36,8 +38,9 @@ class DetailsViewController: UIViewController {
         
         detailsLabel.text = details
     }
+
+    
     @IBAction func backAction(_ sender: Any) {
-        
         self.dismiss(animated: true)
     }
 }

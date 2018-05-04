@@ -56,8 +56,6 @@
 			children = (
 				13C14554209A5A5D0097E0D6 /* WeatherDataModel.swift */,
 				13C14513209910090097E0D6 /* WeahterViewController.swift */,
-				136AF6EE2097280100E2F20C /* Message.swift */,
-				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
@@ -76,9 +74,11 @@
 		136AF6D920970E1F00E2F20C /* zawtar */ = {
 			isa = PBXGroup;
 			children = (
+				136AF6EE2097280100E2F20C /* Message.swift */,
 				132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */,
 				136AF6DA20970E1F00E2F20C /* AppDelegate.swift */,
 				136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */,
+				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
 				136AF6DE20970E1F00E2F20C /* Main.storyboard */,
 				13A4A0DC2097CD5E00D06104 /* Assets.xcassets */,
 				136AF6E320970E3900E2F20C /* LaunchScreen.storyboard */,
