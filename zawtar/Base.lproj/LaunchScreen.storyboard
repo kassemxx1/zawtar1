@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naher" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-fv-CSE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zawtar" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-fv-CSE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.72067451477050781" green="0.62613588571548462" blue="0.43870809674263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jZ5-fv-CSE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ab4-hC-XWP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jZ5-fv-CSE" secondAttribute="bottom" id="EgR-A9-NGk"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="naher" width="1440" height="1440"/>
+        <image name="zawtar" width="1080" height="1078"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@ import SwiftyJSON
 import Foundation
 
 class WeahterViewController: UIViewController {
-    let WEATHER_URL = "api.openweathermap.org/data/2.5/weather?lat=33.320815&lon=35.473069&APPID=1db71a987db219ef67ae0d322b4a133e"
+    let WEATHER_URL = "api.openweathermap.org/data/2.5/weather?lat=33.320815&lon=35.473069&appId=1db71a987db219ef67ae0d322b4a133e"
     let APP_ID = "1db71a987db219ef67ae0d322b4a133e"
     
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -26,43 +26,50 @@ class WeahterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getweatherdata(url: WEATHER_URL)
+        getweatherTemp()
+        
         
         
 
     }
       //Write the getWeatherData method here:
-    func getweatherdata(url : String ) {
-        
-        Alamofire.request(url).responseJSON {
-            response in
-            if response.result.isSuccess {
-                let weatherJSON : JSON = JSON(response.result.value!)
-                self.updateWeatherData(json: weatherJSON)
-                self.updateUIWeatherData()
-            }
-            else {
-                print("connection error")
-                self.cityLabel.text =  "connection Issues"
+    func getweatherTemp() {
+    let session = URLSession.shared
+    let weatherURL = URL(string: "http://api.openweathermap.org/data/2.5/weather?lat=33.320815&lon=35.473069&appId=1db71a987db219ef67ae0d322b4a133e")!
+    let dataTask = session.dataTask(with: weatherURL) {
+        (data: Data?, response: URLResponse?, error: Error?) in
+        if let error = error {
+            print("Error:\n\(error)")
+        } else {
+            if let data = data {
+                let dataString = String(data: data, encoding: String.Encoding.utf8)
+                print("All the weather data:\n\(dataString!)")
+                if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
+                    if let mainDictionary = jsonObj!.value(forKey: "main") as? NSDictionary {
+                    
+                        if let temperature = mainDictionary.value(forKey: "temp") {
+                           
+                            DispatchQueue.main.async {
+                               
+                                
+                                self.temperatureLabel.text = "\(temperature)"
+                                self.cityLabel.text = "زوطر الشرقية"
+                               
+                            }
+                        }
+                    } else {
+                        print("Error: unable to find temperature in dictionary")
+                    }
+                } else {
+                    print("Error: unable to convert json data")
+                }
+            } else {
+                print("Error: did not receive data")
             }
         }
     }
-    
-    //MARK: - JSON Parsing
-    /***************************************************************/
-    
-    
-    //Write the updateWeatherData method here:
-    
-    func updateWeatherData(json : JSON) {
-        let TempResult = json["main"]["temp"].double
-        Datamodule.temperature = Int(TempResult! - 273.15)
-        Datamodule.city = json["name"].stringValue
-        Datamodule.condition = json["weather"][0]["id"].intValue
-        Datamodule.weatherIconName = Datamodule.updateWeatherIcon(condition: Datamodule.condition)
-        
+    dataTask.resume()
     }
-    
     //MARK: - UI Updates
     /***************************************************************/
     
@@ -77,9 +84,15 @@ class WeahterViewController: UIViewController {
     
     
     
-    
-    
-    
+    func updateWeatherData(json : JSON) {
+        let TempResult = json["main"]["temp"].double
+        Datamodule.temperature = Int(TempResult! - 273.15)
+        Datamodule.city = json["name"].stringValue
+        Datamodule.condition = json["weather"][0]["id"].intValue
+        Datamodule.weatherIconName = Datamodule.updateWeatherIcon(condition: Datamodule.condition)
+        
+    }
+
     
     
 }
