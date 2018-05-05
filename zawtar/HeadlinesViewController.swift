@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 
 class HeadlinesCell: UITableViewCell {
@@ -108,6 +109,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func retrieve() {
+        SVProgressHUD.show()
         let messageDB = Database.database().reference()
         messageDB.observe(.childAdded, with: { snapshot in
             
@@ -124,7 +126,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         
             
             self.newsList.append(messages)
-            
+            SVProgressHUD.dismiss()
             
             self.headlinesTableView.reloadData()
             

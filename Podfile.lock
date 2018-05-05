@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.7.2)
   - Firebase (4.13.0):
     - Firebase/Core (= 4.13.0)
   - Firebase/Core (4.13.0):
@@ -50,20 +49,18 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
-  - SwiftyJSON (4.1.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - Alamofire
   - Firebase
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
-  - SwiftyJSON
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -76,10 +73,9 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
-    - SwiftyJSON
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
@@ -92,8 +88,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e083000333022e289565a3a3438d137024bcf639
+PODFILE CHECKSUM: 2aaf911eb768be8206e9e363857a7c99576ec09b
 
 COCOAPODS: 1.5.0

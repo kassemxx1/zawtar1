@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132CECE3209B69C8004FD0A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132CECE2209B69C8004FD0A5 /* GoogleService-Info.plist */; };
+		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
+		136973F5209E5F3C009B605A /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F4209E5F3C009B605A /* DrawerViewController.swift */; };
 		136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DA20970E1F00E2F20C /* AppDelegate.swift */; };
 		136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */; };
 		136AF6E020970E1F00E2F20C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AF6DE20970E1F00E2F20C /* Main.storyboard */; };
@@ -15,14 +16,14 @@
 		136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6EC2097270B00E2F20C /* DetailsViewController.swift */; };
 		136AF6EF2097280100E2F20C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6EE2097280100E2F20C /* Message.swift */; };
 		13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A0DC2097CD5E00D06104 /* Assets.xcassets */; };
-		13C14514209910090097E0D6 /* WeahterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C14513209910090097E0D6 /* WeahterViewController.swift */; };
-		13C14555209A5A5D0097E0D6 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C14554209A5A5D0097E0D6 /* WeatherDataModel.swift */; };
 		1BA4B9926584B5476F2050A5 /* Pods_zawtar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1313597F209DBFC60067851F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Clima-iOS11-master/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
-		132CECE2209B69C8004FD0A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Volumes/Data/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		136973ED209E53E4009B605A /* zawtar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zawtar-Bridging-Header.h"; sourceTree = "<group>"; };
+		136973F4209E5F3C009B605A /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		136AF6D720970E1F00E2F20C /* zawtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zawtar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AF6DA20970E1F00E2F20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
@@ -32,8 +33,6 @@
 		136AF6EC2097270B00E2F20C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		136AF6EE2097280100E2F20C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		13A4A0DC2097CD5E00D06104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/Simple-news-app-for-iOS-master/NewsApp/Main Files/Assets.xcassets"; sourceTree = "<group>"; };
-		13C14513209910090097E0D6 /* WeahterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeahterViewController.swift; sourceTree = "<group>"; };
-		13C14554209A5A5D0097E0D6 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zawtar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC4486EBA7A4BD38B741561 /* Pods-zawtar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.debug.xcconfig"; sourceTree = "<group>"; };
 		670C726929F851D805787333 /* Pods-zawtar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.release.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,12 +53,12 @@
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				13C14554209A5A5D0097E0D6 /* WeatherDataModel.swift */,
-				13C14513209910090097E0D6 /* WeahterViewController.swift */,
+				136973F4209E5F3C009B605A /* DrawerViewController.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
 				A6A02A2239791992C32BDB61 /* Frameworks */,
+				136973ED209E53E4009B605A /* zawtar-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +82,7 @@
 				13A4A0DC2097CD5E00D06104 /* Assets.xcassets */,
 				136AF6E320970E3900E2F20C /* LaunchScreen.storyboard */,
 				136AF6E620970E3900E2F20C /* Info.plist */,
-				132CECE2209B69C8004FD0A5 /* GoogleService-Info.plist */,
+				1313597F209DBFC60067851F /* GoogleService-Info.plist */,
 			);
 			path = zawtar;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 				TargetAttributes = {
 					136AF6D620970E1F00E2F20C = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				136AF6E520970E3900E2F20C /* LaunchScreen.storyboard in Resources */,
-				132CECE3209B69C8004FD0A5 /* GoogleService-Info.plist in Resources */,
+				13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */,
 				13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */,
 				136AF6E020970E1F00E2F20C /* Main.storyboard in Resources */,
 			);
@@ -190,21 +190,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-zawtar/Pods-zawtar-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -240,10 +238,9 @@
 			files = (
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
 				136AF6EF2097280100E2F20C /* Message.swift in Sources */,
-				13C14555209A5A5D0097E0D6 /* WeatherDataModel.swift in Sources */,
+				136973F5209E5F3C009B605A /* DrawerViewController.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,
-				13C14514209910090097E0D6 /* WeahterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,16 +385,17 @@
 			baseConfigurationReference = 5EC4486EBA7A4BD38B741561 /* Pods-zawtar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = zawtar/zawtar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -408,16 +406,16 @@
 			baseConfigurationReference = 670C726929F851D805787333 /* Pods-zawtar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = zawtar/zawtar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
