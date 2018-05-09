@@ -11,4 +11,5 @@ class Message {
     var title:String = ""
     var details :String = ""
     var imagename :String = ""
+    var time : String = ""
 }

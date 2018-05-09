@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
-		136973F5209E5F3C009B605A /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F4209E5F3C009B605A /* DrawerViewController.swift */; };
+		136973F720A09E4A009B605A /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F620A09E49009B605A /* CallViewController.swift */; };
 		136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DA20970E1F00E2F20C /* AppDelegate.swift */; };
 		136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */; };
 		136AF6E020970E1F00E2F20C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AF6DE20970E1F00E2F20C /* Main.storyboard */; };
@@ -23,7 +23,7 @@
 		1313597F209DBFC60067851F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Clima-iOS11-master/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
 		136973ED209E53E4009B605A /* zawtar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zawtar-Bridging-Header.h"; sourceTree = "<group>"; };
-		136973F4209E5F3C009B605A /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		136973F620A09E49009B605A /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		136AF6D720970E1F00E2F20C /* zawtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zawtar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AF6DA20970E1F00E2F20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				136973F4209E5F3C009B605A /* DrawerViewController.swift */,
+				136973F620A09E49009B605A /* CallViewController.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
@@ -238,8 +238,8 @@
 			files = (
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
 				136AF6EF2097280100E2F20C /* Message.swift in Sources */,
-				136973F5209E5F3C009B605A /* DrawerViewController.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
+				136973F720A09E4A009B605A /* CallViewController.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +391,10 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
@@ -412,7 +415,10 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";

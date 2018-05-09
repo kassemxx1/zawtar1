@@ -15,7 +15,12 @@ class HeadlinesCell: UITableViewCell {
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-//@IBOutlet weak var details: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
+    
+    
+    //@IBOutlet weak var details: UILabel!
 //@IBOutlet weak var date: UILabel!
 }
 class HeadlinesViewController: UIViewController {
@@ -24,13 +29,22 @@ class HeadlinesViewController: UIViewController {
     
     @IBOutlet weak var PageControl: UIPageControl!
     
+    
     var pageNumber = 0
     var token: Int64?
     var newsList :[Message] = [Message]()
+    
+    let defaults = UserDefaults.standard
+    
+    
+    
  
     override func viewDidLoad() {
         FirebaseApp.configure()
         super.viewDidLoad()
+        if let items = UserDefaults.standard.array(forKey: "new") as? [Message] {
+            newsList =  items
+        }
         
         
         
@@ -53,7 +67,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -82,7 +96,9 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         //        cell.layer.borderWidth = 1.0
         //        cell.layer.cornerRadius = 10.0
         
+        
         cell.title.text = newsList[indexPath.section].title
+        cell.timeLabel.text = newsList[indexPath.section].time
         
         let storageRef = Storage.storage().reference()
         let storage = storageRef.child(newsList[indexPath.section].imagename)
@@ -103,42 +119,61 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         detailsViewController.previewImage = cell.previewImage.image
         detailsViewController.newsTitle = newsList[indexPath.section].title
         detailsViewController.details = newsList[indexPath.section].details
+        
     
         self.present(detailsViewController, animated: true)
   
         
     }
     func retrieve() {
+        
         SVProgressHUD.show()
         let messageDB = Database.database().reference()
         messageDB.observe(.childAdded, with: { snapshot in
             
             let snapshotvalue = snapshot.value as! Dictionary<String,String>
-            let details = snapshotvalue["details"]!
-            let title = snapshotvalue["title"]!
-            let imagename = snapshotvalue["imagename"]!
-            
+            let details = String(snapshotvalue["details"]!)
+            let title = String(snapshotvalue["title"]!)
+            let imagename = String(snapshotvalue["imagename"]!)
+            let time = String(snapshotvalue["time"]!)
+        
             let messages = Message()
             
-            messages.details = String(details)
-            messages.title = String(title)
-            messages.imagename = String(imagename)
+            
+            messages.details = details
+            messages.title = title
+            messages.imagename = imagename
+            messages.time = time
         
             
-            self.newsList.append(messages)
-            SVProgressHUD.dismiss()
             
+            self.newsList.insert(messages, at: 0)
+            
+            
+            SVProgressHUD.dismiss()
             self.headlinesTableView.reloadData()
+                
+            
+      
+           
             
         })
-     
-        
-        
+    
         
     }
     
+     func currentTime() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        return "\(day)-\(month)-\(year) \(hour):\(minutes)"
+    }
 
-    
+
 }
 
 

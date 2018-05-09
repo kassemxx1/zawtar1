@@ -18,25 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naher" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-fv-CSE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zawtar" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-fv-CSE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By Kassem Abboud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEo-1d-ZVm">
-                                <rect key="frame" x="197" y="594" width="162" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="162" id="5rp-aA-ALs"/>
-                                    <constraint firstAttribute="height" constant="30" id="gMc-Xo-Gva"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © All Rights Reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-00-Vae">
-                                <rect key="frame" x="197" y="632" width="167" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="lD0-dl-HcI"/>
-                                    <constraint firstAttribute="width" constant="167" id="rbo-eQ-nqO"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By Kassem Abboud. Copyright © All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEo-1d-ZVm">
+                                <rect key="frame" x="16" y="626" width="343" height="12"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,24 +30,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ab4-hC-XWP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jZ5-fv-CSE" secondAttribute="bottom" id="EgR-A9-NGk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jZ5-fv-CSE" secondAttribute="trailing" id="HbM-u9-B8p"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rEo-1d-ZVm" secondAttribute="trailing" constant="16" id="HuC-IF-e2I"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rEo-1d-ZVm" secondAttribute="bottom" constant="43" id="gAq-Lo-9P3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eGR-00-Vae" secondAttribute="bottom" constant="12" id="hFh-61-HCn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eGR-00-Vae" secondAttribute="trailing" constant="11" id="lwh-hT-e0D"/>
-                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vYt-la-kQD"/>
+                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1EG-Nm-5FK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rEo-1d-ZVm" secondAttribute="trailing" constant="16" id="2BS-CF-N5w"/>
+                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="E62-xj-duo"/>
+                            <constraint firstItem="rEo-1d-ZVm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HR3-h1-fwP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rEo-1d-ZVm" secondAttribute="bottom" constant="29" id="Mgx-fz-att"/>
+                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Y8q-sF-x6Z"/>
+                            <constraint firstItem="jZ5-fv-CSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gcZ-eI-lzG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51.5" y="374.5"/>
+            <point key="canvasLocation" x="50.399999999999999" y="373.76311844077964"/>
         </scene>
     </scenes>
     <resources>
-        <image name="naher" width="1440" height="1440"/>
+        <image name="zawtar" width="1080" height="1078"/>
     </resources>
 </document>
