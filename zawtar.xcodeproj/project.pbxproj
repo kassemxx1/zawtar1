@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
-		136973F720A09E4A009B605A /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F620A09E49009B605A /* CallViewController.swift */; };
+		136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F820A4DC1E009B605A /* WeatherDataModel.swift */; };
+		136973FB20A4DC5B009B605A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973FA20A4DC5B009B605A /* WeatherViewController.swift */; };
+		136973FD20A4DCDE009B605A /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */; };
+		136973FF20A4E0BB009B605A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136973FE20A4E0BB009B605A /* LaunchScreen.xib */; };
 		136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DA20970E1F00E2F20C /* AppDelegate.swift */; };
 		136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */; };
 		136AF6E020970E1F00E2F20C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AF6DE20970E1F00E2F20C /* Main.storyboard */; };
@@ -22,8 +25,10 @@
 /* Begin PBXFileReference section */
 		1313597F209DBFC60067851F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Clima-iOS11-master/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
-		136973ED209E53E4009B605A /* zawtar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zawtar-Bridging-Header.h"; sourceTree = "<group>"; };
-		136973F620A09E49009B605A /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		136973F820A4DC1E009B605A /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
+		136973FA20A4DC5B009B605A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
+		136973FE20A4E0BB009B605A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		136AF6D720970E1F00E2F20C /* zawtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zawtar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AF6DA20970E1F00E2F20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
@@ -53,12 +58,13 @@
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				136973F620A09E49009B605A /* CallViewController.swift */,
+				136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */,
+				136973FA20A4DC5B009B605A /* WeatherViewController.swift */,
+				136973F820A4DC1E009B605A /* WeatherDataModel.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
 				A6A02A2239791992C32BDB61 /* Frameworks */,
-				136973ED209E53E4009B605A /* zawtar-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +86,7 @@
 				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
 				136AF6DE20970E1F00E2F20C /* Main.storyboard */,
 				13A4A0DC2097CD5E00D06104 /* Assets.xcassets */,
+				136973FE20A4E0BB009B605A /* LaunchScreen.xib */,
 				136AF6E320970E3900E2F20C /* LaunchScreen.storyboard */,
 				136AF6E620970E3900E2F20C /* Info.plist */,
 				1313597F209DBFC60067851F /* GoogleService-Info.plist */,
@@ -173,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136973FF20A4E0BB009B605A /* LaunchScreen.xib in Resources */,
 				136AF6E520970E3900E2F20C /* LaunchScreen.storyboard in Resources */,
 				13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */,
 				13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */,
@@ -190,19 +198,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-zawtar/Pods-zawtar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -237,9 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
+				136973FB20A4DC5B009B605A /* WeatherViewController.swift in Sources */,
+				136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */,
+				136973FD20A4DCDE009B605A /* ChangeCityViewController.swift in Sources */,
 				136AF6EF2097280100E2F20C /* Message.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
-				136973F720A09E4A009B605A /* CallViewController.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

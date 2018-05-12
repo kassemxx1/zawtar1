@@ -12,4 +12,6 @@ target 'zawtar' do
     pod 'Firebase/Messaging'
     pod 'Firebase/Core'
     pod 'SVProgressHUD'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end

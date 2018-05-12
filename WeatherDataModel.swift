@@ -2,12 +2,11 @@
 //  WeatherDataModel.swift
 //  zawtar
 //
-//  Created by kassem on 5/2/18.
+//  Created by kassem on 5/10/18.
 //  Copyright © 2018 kassem. All rights reserved.
 //
 
-import UIKit
-
+import Foundation
 class WeatherDataModel {
     
     //Declare your model variables here
@@ -61,4 +60,3 @@ class WeatherDataModel {
         
     }
 }
-

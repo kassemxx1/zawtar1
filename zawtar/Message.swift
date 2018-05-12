@@ -13,3 +13,8 @@ class Message {
     var imagename :String = ""
     var time : String = ""
 }
+class Item {
+    var message : Message = Message()
+    var done : Bool = false
+    
+}

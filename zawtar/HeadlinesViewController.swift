@@ -17,9 +17,6 @@ class HeadlinesCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    
-    
-    
     //@IBOutlet weak var details: UILabel!
 //@IBOutlet weak var date: UILabel!
 }
@@ -28,31 +25,31 @@ class HeadlinesViewController: UIViewController {
     @IBOutlet weak var headlinesTableView: UITableView!
     
     @IBOutlet weak var PageControl: UIPageControl!
-    
-    
     var pageNumber = 0
     var token: Int64?
-    var newsList :[Message] = [Message]()
+    var newsList :[Item] = [Item]()
     
+
     let defaults = UserDefaults.standard
-    
-    
+    var refreshControl = UIRefreshControl()
     
  
     override func viewDidLoad() {
         FirebaseApp.configure()
         super.viewDidLoad()
-        if let items = UserDefaults.standard.array(forKey: "new") as? [Message] {
-            newsList =  items
-        }
         
+       
         
-        
+      retrieve()
         
         
         // Do any additional setup after loading the view, typically from a nib.
-      retrieve()
-
+      
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        headlinesTableView.addSubview(refreshControl)
+        
 }
 }
 
@@ -97,32 +94,47 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         //        cell.layer.cornerRadius = 10.0
         
         
-        cell.title.text = newsList[indexPath.section].title
-        cell.timeLabel.text = newsList[indexPath.section].time
-        
+        cell.title.text = newsList[indexPath.section].message.title
+        cell.timeLabel.text = newsList[indexPath.section].message.time
         let storageRef = Storage.storage().reference()
-        let storage = storageRef.child(newsList[indexPath.section].imagename)
+        let storage = storageRef.child(newsList[indexPath.section].message.imagename)
         storage.getData(maxSize: 1*2024*2024) { (data, error) in
             if error == nil {
-                cell.previewImage.image = UIImage(data : data!)
+                
+                if self.newsList[indexPath.section].done == true {
+                    cell.previewImage.image = UIImage(data: data!)
+                }
+                
+                
+                }
+                self.refreshControl.endRefreshing()
                 
             }
-            
-        }
+     
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if newsList[indexPath.section].done == false {
+            newsList[indexPath.section].done = true
+        }
+        else {
+            newsList[indexPath.section].done = false
+        }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
+        
         let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
         detailsViewController.previewImage = cell.previewImage.image
-        detailsViewController.newsTitle = newsList[indexPath.section].title
-        detailsViewController.details = newsList[indexPath.section].details
+        detailsViewController.newsTitle = newsList[indexPath.section].message.title
+        detailsViewController.details = newsList[indexPath.section].message.details
         
     
         self.present(detailsViewController, animated: true)
-  
+        DispatchQueue.main.async(execute: {() -> Void in
+         
+   
+        })
         
     }
     func retrieve() {
@@ -137,26 +149,22 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             let imagename = String(snapshotvalue["imagename"]!)
             let time = String(snapshotvalue["time"]!)
         
-            let messages = Message()
+            let messages = Item()
             
             
-            messages.details = details
-            messages.title = title
-            messages.imagename = imagename
-            messages.time = time
-        
+            messages.message.details = details
+            messages.message.title = title
+            messages.message.imagename = imagename
+            messages.message.time = time
+            messages.done = true
             
             
             self.newsList.insert(messages, at: 0)
             
-            
+           
             SVProgressHUD.dismiss()
             self.headlinesTableView.reloadData()
-                
-            
-      
-           
-            
+    
         })
     
         
@@ -172,8 +180,13 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         let year = calendar.component(.year, from: date)
         return "\(day)-\(month)-\(year) \(hour):\(minutes)"
     }
+    @objc func refresh(sender:AnyObject) {
+        self.headlinesTableView.reloadData()
+        
+    }
 
-
+ 
+    
 }
 
 
