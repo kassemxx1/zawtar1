@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
 		136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F820A4DC1E009B605A /* WeatherDataModel.swift */; };
-		136973FB20A4DC5B009B605A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973FA20A4DC5B009B605A /* WeatherViewController.swift */; };
-		136973FD20A4DCDE009B605A /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */; };
 		136973FF20A4E0BB009B605A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136973FE20A4E0BB009B605A /* LaunchScreen.xib */; };
 		136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DA20970E1F00E2F20C /* AppDelegate.swift */; };
 		136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */; };
@@ -26,8 +24,6 @@
 		1313597F209DBFC60067851F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Clima-iOS11-master/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
 		136973F820A4DC1E009B605A /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
-		136973FA20A4DC5B009B605A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		136973FE20A4E0BB009B605A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		136AF6D720970E1F00E2F20C /* zawtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zawtar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AF6DA20970E1F00E2F20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				136973FC20A4DCDE009B605A /* ChangeCityViewController.swift */,
-				136973FA20A4DC5B009B605A /* WeatherViewController.swift */,
 				136973F820A4DC1E009B605A /* WeatherDataModel.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
@@ -249,9 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
-				136973FB20A4DC5B009B605A /* WeatherViewController.swift in Sources */,
 				136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */,
-				136973FD20A4DCDE009B605A /* ChangeCityViewController.swift in Sources */,
 				136AF6EF2097280100E2F20C /* Message.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,

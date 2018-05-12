@@ -14,10 +14,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
-    
-    
-    
-    
+
     var previewImage: UIImage?
     var newsTitle: String?
     var details: String?
@@ -35,7 +32,6 @@ class DetailsViewController: UIViewController {
     private func fillNewsData() {
         previewImageView.image = previewImage
         titleLabel.text = newsTitle
-        
         detailsLabel.text = details
     }
 

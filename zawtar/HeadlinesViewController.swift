@@ -9,10 +9,14 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import CoreLocation
+import Alamofire
+import SwiftyJSON
+import Foundation
 
-
-class HeadlinesCell: UITableViewCell {
+class HeadlinesCell: UITableViewCell{
     @IBOutlet weak var previewImage: UIImageView!
+ 
     @IBOutlet weak var title: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -20,36 +24,88 @@ class HeadlinesCell: UITableViewCell {
     //@IBOutlet weak var details: UILabel!
 //@IBOutlet weak var date: UILabel!
 }
-class HeadlinesViewController: UIViewController {
+class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     
     @IBOutlet weak var headlinesTableView: UITableView!
-    
     @IBOutlet weak var PageControl: UIPageControl!
     var pageNumber = 0
     var token: Int64?
     var newsList :[Item] = [Item]()
-    
-
     let defaults = UserDefaults.standard
     var refreshControl = UIRefreshControl()
     
- 
+    
+    
+    //Constants
+    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?"
+    let APP_ID = "1db71a987db219ef67ae0d322b4a133e"
+    //TODO: Declare instance variables here
+    let locationmanager = CLLocationManager()
+    let Datamodule = WeatherDataModel()
+    //Pre-linked IBOutlets
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    //MARK: - Networking
+    /***************************************************************/
+    //Write the getWeatherData method here:
+    func getweatherdata(url : String , parameter : [String :String]) {
+        Alamofire.request(url + "/get" , parameters: parameter).responseJSON {
+            response in
+            if response.result.isSuccess {
+                let weatherJSON : JSON = JSON(response.result.value!)
+                self.updateWeatherData(json: weatherJSON)
+                self.updateUIWeatherData()
+            }
+            else {
+                print("connection error")
+            }
+        }
+    }
+    //MARK: - JSON Parsing
+    /***************************************************************/
+    //Write the updateWeatherData method here:
+    func updateWeatherData(json : JSON) {
+        let TempResult = json["main"]["temp"].double
+        Datamodule.temperature = Int(TempResult! - 273.15)
+        Datamodule.city = json["name"].stringValue
+        Datamodule.condition = json["weather"][0]["id"].intValue
+        Datamodule.weatherIconName = Datamodule.updateWeatherIcon(condition: Datamodule.condition)
+    }
+    //MARK: - UI Updates
+    /***************************************************************/
+    //Write the updateUIWithWeatherData method here:
+    func updateUIWeatherData() {
+        temperatureLabel.text = String(Datamodule.temperature) + "°"
+        weatherIcon.image = UIImage(named : Datamodule.weatherIconName)
+    }
+    //MARK: - Location Manager Delegate Methods
+    /***************************************************************/
+    //Write the didUpdateLocations method here:
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        if (location.horizontalAccuracy > 0) {
+            locationmanager.stopUpdatingLocation()
+            locationmanager.delegate = nil
+            let latitude = String(location.coordinate.latitude)
+            let longitude = String(location.coordinate.longitude)
+            let params : [String : String] = ["lat" : latitude , "lon" : longitude ,"appId" :APP_ID]
+            getweatherdata(url: WEATHER_URL, parameter: params)
+        }
+    }
     override func viewDidLoad() {
+        //TODO:Set up the location manager here.
+        locationmanager.delegate = self
+        locationmanager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationmanager.requestWhenInUseAuthorization()
+        locationmanager.startUpdatingLocation()
         FirebaseApp.configure()
         super.viewDidLoad()
-        
-       
-        
-      retrieve()
-        
-        
+        retrieve()
         // Do any additional setup after loading the view, typically from a nib.
-      
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         headlinesTableView.addSubview(refreshControl)
-        
 }
 }
 
@@ -87,30 +143,27 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "headlineCell"
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! HeadlinesCell
-        
-        //        cell.layer.borderColor = UIColor.darkGray.cgColor
-        //        cell.layer.borderWidth = 1.0
-        //        cell.layer.cornerRadius = 10.0
-        
-        
         cell.title.text = newsList[indexPath.section].message.title
         cell.timeLabel.text = newsList[indexPath.section].message.time
         let storageRef = Storage.storage().reference()
+        
         let storage = storageRef.child(newsList[indexPath.section].message.imagename)
+        
         storage.getData(maxSize: 1*2024*2024) { (data, error) in
+           
             if error == nil {
                 
                 if self.newsList[indexPath.section].done == true {
+                    
+                    
                     cell.previewImage.image = UIImage(data: data!)
+                
                 }
-                
-                
                 }
                 self.refreshControl.endRefreshing()
-                
             }
-     
         return cell
     }
     
@@ -123,51 +176,34 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
-        
         let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
         detailsViewController.previewImage = cell.previewImage.image
         detailsViewController.newsTitle = newsList[indexPath.section].message.title
         detailsViewController.details = newsList[indexPath.section].message.details
-        
-    
         self.present(detailsViewController, animated: true)
         DispatchQueue.main.async(execute: {() -> Void in
-         
-   
         })
-        
     }
     func retrieve() {
-        
         SVProgressHUD.show()
         let messageDB = Database.database().reference()
         messageDB.observe(.childAdded, with: { snapshot in
-            
             let snapshotvalue = snapshot.value as! Dictionary<String,String>
             let details = String(snapshotvalue["details"]!)
             let title = String(snapshotvalue["title"]!)
             let imagename = String(snapshotvalue["imagename"]!)
             let time = String(snapshotvalue["time"]!)
-        
+
             let messages = Item()
-            
-            
             messages.message.details = details
             messages.message.title = title
             messages.message.imagename = imagename
             messages.message.time = time
             messages.done = true
-            
-            
             self.newsList.insert(messages, at: 0)
-            
-           
             SVProgressHUD.dismiss()
             self.headlinesTableView.reloadData()
-    
         })
-    
-        
     }
     
      func currentTime() -> String {
@@ -184,11 +220,6 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         self.headlinesTableView.reloadData()
         
     }
-
  
-    
+
 }
-
-
-
-

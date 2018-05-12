@@ -13,8 +13,6 @@ import UserNotificationsUI
 import FirebaseCore
 import FirebaseMessaging
 import FirebaseInstanceID
-
-
 import CoreData
 
 @UIApplicationMain
