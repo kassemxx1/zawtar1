@@ -31,11 +31,27 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     
     @IBOutlet weak var SlideView: UIView!
     
-    @IBAction func AkhbarButton(_ sender: Any) {
-    }
-    @IBAction func AcrchiveButton(_ sender: Any) {
-    }
+    @IBOutlet weak var MainViewConstraint: NSLayoutConstraint!
     
+    @IBAction func Refresh(_ sender: Any) {
+        refresh()
+        
+    }
+    @IBAction func Menu(_ sender: Any) {
+       
+        UIView.animate(withDuration: 0.2, animations: {
+            self.ViewConstrain.constant = 0
+            self.view.layoutIfNeeded()
+        })
+        
+    }
+    @IBAction func AkhbarButton(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.ViewConstrain.constant = -150
+            self.view.layoutIfNeeded()
+        })
+    }
+ 
     
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var PageControl: UIPageControl!
@@ -43,10 +59,8 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     var token: Int64?
     var newsList :[Message] = [Message]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var refreshControl = UIRefreshControl()
-   // let Filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
-    
-    
+    //var refreshControl = UIRefreshControl()
+  
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?"
     let APP_ID = "1db71a987db219ef67ae0d322b4a133e"
@@ -110,7 +124,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         SlideView.layer.shadowColor = UIColor.black.cgColor
         SlideView.layer.shadowOpacity = 1
         SlideView.layer.shadowOffset = CGSize(width: 5, height: 0)
-        ViewConstrain.constant = -145
+        ViewConstrain.constant = -150
         
         
         
@@ -124,10 +138,10 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         retrieve()
        
         // Do any additional setup after loading the view, typically from a nib.
-        refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        headlinesTableView.addSubview(refreshControl)
+//        refreshControl = UIRefreshControl()
+//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+//        headlinesTableView.addSubview(refreshControl)
 }
     
     @IBAction func panPerfomed(_ sender: UIPanGestureRecognizer) {
@@ -153,7 +167,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         }else if sender.state == .ended{
             if ViewConstrain.constant < -10 {
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.ViewConstrain.constant = -145
+                    self.ViewConstrain.constant = -150
                     self.view.layoutIfNeeded()
                 })
             }else {
@@ -203,9 +217,8 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "headlineCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! HeadlinesCell
-        if indexPath.row == 0 {
-            
-        }
+ 
+        
         cell.previewImage.setRounded()
         cell.title.text = newsList[indexPath.section].title
         cell.timeLabel.text = newsList[indexPath.section].time
@@ -232,6 +245,12 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // MARK:didselectedRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.ViewConstrain.constant = -150
+            self.view.layoutIfNeeded()
+        })
+        
+        
         if newsList[indexPath.section].done == false {
             newsList[indexPath.section].done = true
         }
@@ -300,14 +319,14 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         self.saveItems()
                         SVProgressHUD.dismiss()
                       
-                       self.refreshControl.endRefreshing()
+//                       self.refreshControl.endRefreshing()
                     }
                 }
                 
         }
     }
     //Refresh
-    @objc func refresh(sender:AnyObject) {
+    @objc func refresh() {
         newsList.removeAll()
         retrieve()
  
