@@ -10,9 +10,6 @@ import UIKit
 import Firebase
 import UserNotifications
 import UserNotificationsUI
-import FirebaseCore
-import FirebaseMessaging
-import FirebaseInstanceID
 import CoreData
 
 @UIApplicationMain
@@ -21,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       
+       FirebaseApp.configure()
+        
+        
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]
@@ -87,6 +86,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken
     }
+    
+    // coreData coreData coreData coreData coreData coreData coreData coreData coreData coreData coreData coreData coreData
+    func applicationWillTerminate(_ application: UIApplication) {
+     
+        self.saveContext()
+    }
+    
+    // MARK: - Core Data stack
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+      
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+               
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+   // end coreData end coreData end coreData end coreData end coreData
 }
 // [START ios_10_message_handling]
 @available(iOS 10, *)
@@ -125,15 +159,17 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
+     
     }
-    // [END refresh_token]
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
+  
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
     }
-    // [END ios_10_data_message]
+
+
 }
+
+
+
+
+

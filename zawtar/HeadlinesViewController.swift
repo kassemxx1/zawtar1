@@ -13,7 +13,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import Foundation
-
+import CoreData
 class HeadlinesCell: UITableViewCell{
     @IBOutlet weak var previewImage: UIImageView!
  
@@ -25,15 +25,26 @@ class HeadlinesCell: UITableViewCell{
 //@IBOutlet weak var date: UILabel!
 }
 class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
+    @IBOutlet weak var ViewConstrain: NSLayoutConstraint!
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
+    @IBOutlet weak var SlideView: UIView!
+    
+    @IBAction func AkhbarButton(_ sender: Any) {
+    }
+    @IBAction func AcrchiveButton(_ sender: Any) {
+    }
+    
     
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var PageControl: UIPageControl!
     var pageNumber = 0
     var token: Int64?
-    var newsList :[Item] = [Item]()
-    let defaults = UserDefaults.standard
+    var newsList :[Message] = [Message]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var refreshControl = UIRefreshControl()
-    
+   // let Filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     
     //Constants
@@ -94,19 +105,67 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     }
     override func viewDidLoad() {
         //TODO:Set up the location manager here.
+    
+        blurView.layer.cornerRadius = 15
+        SlideView.layer.shadowColor = UIColor.black.cgColor
+        SlideView.layer.shadowOpacity = 1
+        SlideView.layer.shadowOffset = CGSize(width: 5, height: 0)
+        ViewConstrain.constant = -145
+        
+        
+        
+        
         locationmanager.delegate = self
         locationmanager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationmanager.requestWhenInUseAuthorization()
         locationmanager.startUpdatingLocation()
-        FirebaseApp.configure()
+        
         super.viewDidLoad()
         retrieve()
+       
         // Do any additional setup after loading the view, typically from a nib.
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         headlinesTableView.addSubview(refreshControl)
 }
+    
+    @IBAction func panPerfomed(_ sender: UIPanGestureRecognizer) {
+        if sender.state == .began || sender.state == .changed {
+            let translation = sender.translation(in : self.view).x
+            if translation > 0 {
+                if ViewConstrain.constant < 20 {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.ViewConstrain.constant += translation / 10
+                        self.view.layoutIfNeeded()
+                    })
+                }
+            }else {
+                if ViewConstrain.constant > -150  {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.ViewConstrain.constant += translation / 10
+                        self.view.layoutIfNeeded()
+            })
+                }
+            
+        }
+            
+        }else if sender.state == .ended{
+            if ViewConstrain.constant < -10 {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.ViewConstrain.constant = -145
+                    self.view.layoutIfNeeded()
+                })
+            }else {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.ViewConstrain.constant = 0
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+ 
+    }
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -120,7 +179,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 75.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -140,33 +199,38 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
     }
-    
+    //MARK:CellforRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "headlineCell"
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! HeadlinesCell
-        cell.title.text = newsList[indexPath.section].message.title
-        cell.timeLabel.text = newsList[indexPath.section].message.time
-        let storageRef = Storage.storage().reference()
+        if indexPath.row == 0 {
+            
+        }
+        cell.previewImage.setRounded()
+        cell.title.text = newsList[indexPath.section].title
+        cell.timeLabel.text = newsList[indexPath.section].time
         
-        let storage = storageRef.child(newsList[indexPath.section].message.imagename)
+        if let image = newsList[indexPath.section].imagename{
+            
         
-        storage.getData(maxSize: 1*2024*2024) { (data, error) in
-           
-            if error == nil {
-                
-                if self.newsList[indexPath.section].done == true {
-                    
-                    
-                    cell.previewImage.image = UIImage(data: data!)
-                
-                }
-                }
-                self.refreshControl.endRefreshing()
-            }
+            cell.previewImage.loadImageUsingCacheWithUrlString(urlString: image )
+        }
+//        let storageRef = Storage.storage().reference()
+//
+//        let storage = storageRef.child(newsList[indexPath.section].imagename!)
+//
+//        storage.getData(maxSize: 1*2024*2024) { (data, error) in
+//
+//            if  error == nil {
+//
+//                       cell.previewImage.image = UIImage(data: data!)
+//                }
+//
+//            }
+      //  refreshControl.endRefreshing()
         return cell
     }
-    
+    // MARK:didselectedRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if newsList[indexPath.section].done == false {
             newsList[indexPath.section].done = true
@@ -178,13 +242,14 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
         let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
         detailsViewController.previewImage = cell.previewImage.image
-        detailsViewController.newsTitle = newsList[indexPath.section].message.title
-        detailsViewController.details = newsList[indexPath.section].message.details
+        detailsViewController.newsTitle = newsList[indexPath.section].title
+        detailsViewController.details = newsList[indexPath.section].details
         self.present(detailsViewController, animated: true)
-        DispatchQueue.main.async(execute: {() -> Void in
-        })
+        
     }
-    func retrieve() {
+    // MARK:Retrive()
+ /*   func retrieve() {
+        
         SVProgressHUD.show()
         let messageDB = Database.database().reference()
         messageDB.observe(.childAdded, with: { snapshot in
@@ -193,33 +258,86 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             let title = String(snapshotvalue["title"]!)
             let imagename = String(snapshotvalue["imagename"]!)
             let time = String(snapshotvalue["time"]!)
-
-            let messages = Item()
-            messages.message.details = details
-            messages.message.title = title
-            messages.message.imagename = imagename
-            messages.message.time = time
+            print(details)
+            print(title)
+            let messages = Message(context: self.context)
+            messages.details = details
+            messages.title = title
+            messages.imagename = imagename
+            messages.time = time
             messages.done = true
+            
             self.newsList.insert(messages, at: 0)
+            self.saveItems()
             SVProgressHUD.dismiss()
             self.headlinesTableView.reloadData()
         })
+    }*/
+    func retrieve() {
+        SVProgressHUD.show()
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        db.collection("news").getDocuments()
+            { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents  {
+                        let message = Message(context: self.context)
+                        let title = document.data()["title"] as? String
+                        let details = document.data()["details"] as? String
+                        let imagename = document.data()["imagename"] as? String
+                        let time = document.data()["time"] as? String
+                        message.details = details
+                        message.title = title
+                        message.imagename = imagename
+                        message.time = time
+                        self.newsList.insert(message, at: 0)
+                        
+                       self.headlinesTableView.reloadData()
+                        self.saveItems()
+                        SVProgressHUD.dismiss()
+                      
+                       self.refreshControl.endRefreshing()
+                    }
+                }
+                
+        }
     }
-    
-     func currentTime() -> String {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        let year = calendar.component(.year, from: date)
-        return "\(day)-\(month)-\(year) \(hour):\(minutes)"
-    }
+    //Refresh
     @objc func refresh(sender:AnyObject) {
-        self.headlinesTableView.reloadData()
-        
-    }
+        newsList.removeAll()
+        retrieve()
  
+    }
+    //saveItem
+    func saveItems()  {
+      
+        do {
+           
+            try context.save()
+        }
+        catch {
+            print("error save")
+        }
+    }
+    //LoadItem
+  func loadItems() {
+    
+        let request : NSFetchRequest<Message> = Message.fetchRequest()
+        do {
+           newsList =  try context.fetch(request)
+        }catch {
+            print("error load")
+        }
+    
+    }
 
 }
+
+    
+
+
+

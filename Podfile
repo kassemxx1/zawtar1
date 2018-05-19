@@ -14,4 +14,5 @@ target 'zawtar' do
     pod 'SVProgressHUD'
     pod 'Alamofire'
     pod 'SwiftyJSON'
+    pod 'Firebase/Firestore'
 end
