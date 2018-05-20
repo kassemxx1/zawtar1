@@ -65,20 +65,7 @@ class ArchiveViewController: UIViewController ,UITableViewDelegate,UITableViewDa
             self.videTableView.reloadData()
     })
     }*/
-    func inser() {
-        let videocode = "https://www.youtube.com/embed/n7PuorNfRxw"
-        let videotitle = "mariam"
-        let video = VideoContent(context: self.context)
-        let video2 = VideoContent(context: self.context)
-        video.videoCode = videocode
-        video.videoTitle = videotitle
-        video2.videoCode = videocode
-        video2.videoTitle = videotitle
-        VideoArray.insert(video, at: 0)
-        VideoArray.insert(video2, at: 1)
-        saveItems()
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

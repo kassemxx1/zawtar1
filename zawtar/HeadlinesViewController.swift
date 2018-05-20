@@ -27,12 +27,16 @@ class HeadlinesCell: UITableViewCell{
 class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     @IBOutlet weak var ViewConstrain: NSLayoutConstraint!
     
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var masterView: NSLayoutConstraint!
+  
+    
+    
     @IBOutlet weak var blurView: UIVisualEffectView!
     
     @IBOutlet weak var SlideView: UIView!
     
-    @IBOutlet weak var MainViewConstraint: NSLayoutConstraint!
-    
+
     @IBAction func Refresh(_ sender: Any) {
         refresh()
         
@@ -47,7 +51,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     }
     @IBAction func AkhbarButton(_ sender: Any) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.ViewConstrain.constant = -150
+            self.ViewConstrain.constant = -200
             self.view.layoutIfNeeded()
         })
     }
@@ -124,7 +128,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         SlideView.layer.shadowColor = UIColor.black.cgColor
         SlideView.layer.shadowOpacity = 1
         SlideView.layer.shadowOffset = CGSize(width: 5, height: 0)
-        ViewConstrain.constant = -150
+        ViewConstrain.constant = -200
         
         
         
@@ -167,9 +171,10 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         }else if sender.state == .ended{
             if ViewConstrain.constant < -10 {
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.ViewConstrain.constant = -150
+                    self.ViewConstrain.constant = -200
                     self.view.layoutIfNeeded()
                 })
+
             }else {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.ViewConstrain.constant = 0
@@ -246,7 +251,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK:didselectedRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.ViewConstrain.constant = -150
+            self.ViewConstrain.constant = -200
             self.view.layoutIfNeeded()
         })
         
