@@ -13,8 +13,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailsLabel: UILabel!
 
+    @IBOutlet weak var detailsLabel: UITextView!
     var previewImage: UIImage?
     var newsTitle: String?
     var details: String?

@@ -330,6 +330,12 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                 
         }
     }
+    
+    
+    
+    
+    
+    
     //Refresh
     @objc func refresh() {
         newsList.removeAll()
