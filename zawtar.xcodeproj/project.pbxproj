@@ -11,8 +11,8 @@
 		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
 		1333B54120B1D33200A397F0 /* NewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54020B1D33200A397F0 /* NewCustomCell.swift */; };
 		1333B54320B1D3A400A397F0 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54220B1D3A400A397F0 /* GuideViewController.swift */; };
+		1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54C20B4BBD900A397F0 /* FirstCell.swift */; };
 		136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136973F820A4DC1E009B605A /* WeatherDataModel.swift */; };
-		136973FF20A4E0BB009B605A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136973FE20A4E0BB009B605A /* LaunchScreen.xib */; };
 		1369742E20A8C7C1009B605A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1369742C20A8C7C1009B605A /* DataModel.xcdatamodeld */; };
 		136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DA20970E1F00E2F20C /* AppDelegate.swift */; };
 		136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */; };
@@ -22,6 +22,9 @@
 		137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */; };
 		137F1B4820AB162300C8A379 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4720AB162300C8A379 /* CustomCell.swift */; };
 		13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A0DC2097CD5E00D06104 /* Assets.xcassets */; };
+		13E50CE220B8C58C003C6864 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE120B8C58C003C6864 /* MainVC.swift */; };
+		13E50CE620B8C6A8003C6864 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE520B8C6A8003C6864 /* TableViewCell.swift */; };
+		13E50CE820B8CBE3003C6864 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */; };
 		1BA4B9926584B5476F2050A5 /* Pods_zawtar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +34,8 @@
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
 		1333B54020B1D33200A397F0 /* NewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomCell.swift; sourceTree = "<group>"; };
 		1333B54220B1D3A400A397F0 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		1333B54C20B4BBD900A397F0 /* FirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
 		136973F820A4DC1E009B605A /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
-		136973FE20A4E0BB009B605A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		1369742D20A8C7C1009B605A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		136AF6D720970E1F00E2F20C /* zawtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zawtar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AF6DA20970E1F00E2F20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,9 @@
 		137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		137F1B4720AB162300C8A379 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		13A4A0DC2097CD5E00D06104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/Simple-news-app-for-iOS-master/NewsApp/Main Files/Assets.xcassets"; sourceTree = "<group>"; };
+		13E50CE120B8C58C003C6864 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		13E50CE520B8C6A8003C6864 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zawtar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC4486EBA7A4BD38B741561 /* Pods-zawtar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.debug.xcconfig"; sourceTree = "<group>"; };
 		670C726929F851D805787333 /* Pods-zawtar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.release.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,14 +67,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1333B54820B4773A00A397F0 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				1333B54020B1D33200A397F0 /* NewCustomCell.swift */,
+				1333B54220B1D3A400A397F0 /* GuideViewController.swift */,
+			);
+			name = Guide;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1333B54920B4BADD00A397F0 /* FirstTable */ = {
+			isa = PBXGroup;
+			children = (
+				136973F820A4DC1E009B605A /* WeatherDataModel.swift */,
+				136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */,
+				1305AE3220AE101200C4ED9E /* cacheImage.swift */,
+				1333B54C20B4BBD900A397F0 /* FirstCell.swift */,
+			);
+			name = FirstTable;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1333B54A20B4BB1900A397F0 /* archive */ = {
+			isa = PBXGroup;
+			children = (
+				137F1B4720AB162300C8A379 /* CustomCell.swift */,
+				137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */,
+			);
+			path = archive;
+			sourceTree = "<group>";
+		};
+		1333B54B20B4BB4F00A397F0 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				1333B54220B1D3A400A397F0 /* GuideViewController.swift */,
-				1333B54020B1D33200A397F0 /* NewCustomCell.swift */,
-				1305AE3220AE101200C4ED9E /* cacheImage.swift */,
-				137F1B4720AB162300C8A379 /* CustomCell.swift */,
-				136973F820A4DC1E009B605A /* WeatherDataModel.swift */,
+				13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */,
+				13E50CE520B8C6A8003C6864 /* TableViewCell.swift */,
+				13E50CE120B8C58C003C6864 /* MainVC.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
@@ -87,16 +130,16 @@
 		136AF6D920970E1F00E2F20C /* zawtar */ = {
 			isa = PBXGroup;
 			children = (
+				1333B54920B4BADD00A397F0 /* FirstTable */,
+				1333B54820B4773A00A397F0 /* Guide */,
+				1333B54A20B4BB1900A397F0 /* archive */,
+				1333B54B20B4BB4F00A397F0 /* Details */,
+				136AF6DE20970E1F00E2F20C /* Main.storyboard */,
+				136AF6E320970E3900E2F20C /* LaunchScreen.storyboard */,
+				13A4A0DC2097CD5E00D06104 /* Assets.xcassets */,
 				136AF6DA20970E1F00E2F20C /* AppDelegate.swift */,
-				137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */,
 				1369742C20A8C7C1009B605A /* DataModel.xcdatamodeld */,
 				132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */,
-				136AF6DC20970E1F00E2F20C /* HeadlinesViewController.swift */,
-				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
-				13A4A0DC2097CD5E00D06104 /* Assets.xcassets */,
-				136AF6DE20970E1F00E2F20C /* Main.storyboard */,
-				136973FE20A4E0BB009B605A /* LaunchScreen.xib */,
-				136AF6E320970E3900E2F20C /* LaunchScreen.storyboard */,
 				136AF6E620970E3900E2F20C /* Info.plist */,
 				1313597F209DBFC60067851F /* GoogleService-Info.plist */,
 			);
@@ -189,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136973FF20A4E0BB009B605A /* LaunchScreen.xib in Resources */,
 				136AF6E520970E3900E2F20C /* LaunchScreen.storyboard in Resources */,
 				13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */,
 				13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */,
@@ -267,13 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E50CE620B8C6A8003C6864 /* TableViewCell.swift in Sources */,
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
+				13E50CE220B8C58C003C6864 /* MainVC.swift in Sources */,
 				137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */,
+				1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */,
 				1305AE3320AE101200C4ED9E /* cacheImage.swift in Sources */,
 				1333B54120B1D33200A397F0 /* NewCustomCell.swift in Sources */,
 				136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */,
 				1333B54320B1D3A400A397F0 /* GuideViewController.swift in Sources */,
 				1369742E20A8C7C1009B605A /* DataModel.xcdatamodeld in Sources */,
+				13E50CE820B8CBE3003C6864 /* CollectionViewCell.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
 				137F1B4820AB162300C8A379 /* CustomCell.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,
@@ -427,10 +473,7 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
@@ -451,10 +494,7 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";

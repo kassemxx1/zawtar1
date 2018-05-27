@@ -39,7 +39,7 @@ class ArchiveViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250.0
+        return self.view.frame.height / 2.5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellidentifier = "customcell"
@@ -123,3 +123,4 @@ class ArchiveViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         self.videTableView.reloadData()
     }
 }
+

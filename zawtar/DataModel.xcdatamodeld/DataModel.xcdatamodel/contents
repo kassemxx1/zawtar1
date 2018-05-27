@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Company" representedClassName="Company" syncable="YES" codeGenerationType="class">
+    <entity name="Company" representedClassName=".Company" syncable="YES" codeGenerationType="class">
         <attribute name="nameOfCompany" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numbOfCompany" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -11,6 +11,9 @@
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="NameOfImage" representedClassName=".ImageOfImage" syncable="YES" codeGenerationType="class">
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="VideoContent" representedClassName=".VideoContent" syncable="YES" codeGenerationType="class">
         <attribute name="videoCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videoTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,5 +22,6 @@
         <element name="Company" positionX="45" positionY="45" width="128" height="75"/>
         <element name="Message" positionX="-54" positionY="-9" width="128" height="120"/>
         <element name="VideoContent" positionX="106" positionY="27" width="128" height="75"/>
+        <element name="NameOfImage" positionX="27" positionY="36" width="128" height="60"/>
     </elements>
 </model>

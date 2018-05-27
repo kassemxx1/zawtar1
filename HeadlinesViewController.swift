@@ -56,6 +56,9 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         })
     }
  
+    @IBAction func archiveButton(_ sender: Any) {
+         self.performSegue(withIdentifier: "goToArchive", sender: self)
+    }
     
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var PageControl: UIPageControl!
@@ -168,7 +171,8 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
             
         }
             
-        }else if sender.state == .ended{
+        }
+        else if sender.state == .ended{
             if ViewConstrain.constant < -10 {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.ViewConstrain.constant = -200
@@ -198,7 +202,12 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return self.view.frame.width * 0.5
+        }
+        else {
         return 75.0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -220,6 +229,21 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     //MARK:CellforRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
+          
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "FirstCell") as! FirstCell
+            cell.FirstCellTItle.text = newsList[indexPath.section].title
+            if let image = newsList[indexPath.section].imagename{
+                
+                
+                cell.FirstCellImage.loadImageUsingCacheWithUrlString(urlString: image)
+            }
+            
+            return cell
+        }
+        
+        else {
         let cellIdentifier = "headlineCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! HeadlinesCell
  
@@ -233,20 +257,9 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         
             cell.previewImage.loadImageUsingCacheWithUrlString(urlString: image )
         }
-//        let storageRef = Storage.storage().reference()
-//
-//        let storage = storageRef.child(newsList[indexPath.section].imagename!)
-//
-//        storage.getData(maxSize: 1*2024*2024) { (data, error) in
-//
-//            if  error == nil {
-//
-//                       cell.previewImage.image = UIImage(data: data!)
-//                }
-//
-//            }
-      //  refreshControl.endRefreshing()
+
         return cell
+    }
     }
     // MARK:didselectedRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -264,12 +277,21 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
-        let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
+        
+        if indexPath.section == 0 {
+            let cell = tableView.cellForRow(at: indexPath) as! FirstCell
+            detailsViewController.previewImage = cell.FirstCellImage.image
+            detailsViewController.newsTitle = newsList[indexPath.section].title
+            detailsViewController.details = newsList[indexPath.section].details
+            self.present(detailsViewController, animated: true)
+        }
+        else {
+            let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
         detailsViewController.previewImage = cell.previewImage.image
         detailsViewController.newsTitle = newsList[indexPath.section].title
         detailsViewController.details = newsList[indexPath.section].details
         self.present(detailsViewController, animated: true)
-        
+        }
     }
     // MARK:Retrive()
  /*   func retrieve() {
@@ -303,6 +325,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
+        db.collection("news").order(by: "Document id")
         db.collection("news").getDocuments()
             { (querySnapshot, err) in
                 if let err = err {
@@ -320,21 +343,20 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         message.time = time
                         self.newsList.insert(message, at: 0)
                         
+                        
                        self.headlinesTableView.reloadData()
                         self.saveItems()
                         SVProgressHUD.dismiss()
                       
 //                       self.refreshControl.endRefreshing()
                     }
+                    
                 }
                 
         }
+        
     }
-    
-    
-    
-    
-    
+  
     
     //Refresh
     @objc func refresh() {
@@ -364,6 +386,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         }
     
     }
+    
 
 }
 

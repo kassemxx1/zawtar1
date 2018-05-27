@@ -9,29 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChangeCityViewController.swift"
-            timestampString = "547824634.7185349"
+            filePath = "HeadlinesViewController.swift"
+            timestampString = "549150090.258925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "Refresh(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "testViewController.swift"
-            timestampString = "548323517.516418"
+            filePath = "HeadlinesViewController.swift"
+            timestampString = "549150090.259694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "Refresh(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

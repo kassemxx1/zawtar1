@@ -11,12 +11,16 @@ import CoreData
 import Firebase
 import SVProgressHUD
 
-class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     var guide : [Company] = [Company]()
     @IBOutlet weak var GuideTable: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         GuideTable.delegate = self
         GuideTable.dataSource = self
         retrieve()
@@ -43,6 +47,7 @@ class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func retrieve() {
+        guide.removeAll()
         SVProgressHUD.show()
         let db = Firestore.firestore()
         let settings = db.settings
@@ -95,8 +100,41 @@ class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let request : NSFetchRequest<Company> = Company.fetchRequest()
+        let predicate = NSPredicate(format:"nameOfCompany CONTAINS[cd] %@",searchBar.text!)
+        request.predicate = predicate
+        let sortDescriptors = NSSortDescriptor(key: "nameOfCompany", ascending: true)
+        request.sortDescriptors = [sortDescriptors]
+        do {
+            guide = try context.fetch(request)
+          self.GuideTable.reloadData()
+        }catch {
+            print(error)
+        }
+       
+        
+    }
     
     
-    
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let request : NSFetchRequest<Company> = Company.fetchRequest()
+        if searchBar.text?.count == 0 {
+            do {
+                guide = try context.fetch(request)
+            }catch {
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
+        
+       self.GuideTable.reloadData()
+    }
 }
+
+
