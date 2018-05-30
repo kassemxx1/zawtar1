@@ -8,11 +8,9 @@
         <attribute name="details" attributeType="String" syncable="YES"/>
         <attribute name="done" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="imagename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pics" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="NameOfImage" representedClassName=".ImageOfImage" syncable="YES" codeGenerationType="class">
-        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="VideoContent" representedClassName=".VideoContent" syncable="YES" codeGenerationType="class">
         <attribute name="videoCode" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,8 +18,7 @@
     </entity>
     <elements>
         <element name="Company" positionX="45" positionY="45" width="128" height="75"/>
-        <element name="Message" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Message" positionX="-324" positionY="-216" width="128" height="135"/>
         <element name="VideoContent" positionX="106" positionY="27" width="128" height="75"/>
-        <element name="NameOfImage" positionX="27" positionY="36" width="128" height="60"/>
     </elements>
 </model>

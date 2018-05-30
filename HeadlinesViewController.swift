@@ -65,6 +65,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     var pageNumber = 0
     var token: Int64?
     var newsList :[Message] = [Message]()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     //var refreshControl = UIRefreshControl()
   
@@ -267,8 +268,8 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             self.ViewConstrain.constant = -200
             self.view.layoutIfNeeded()
         })
-        
-        
+
+
         if newsList[indexPath.section].done == false {
             newsList[indexPath.section].done = true
         }
@@ -277,20 +278,23 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
-        
+
         if indexPath.section == 0 {
             let cell = tableView.cellForRow(at: indexPath) as! FirstCell
-            detailsViewController.previewImage = cell.FirstCellImage.image
+            detailsViewController.pics = newsList[indexPath.section].pics as? [String]
+            detailsViewController.newsTitle = newsList[indexPath.section].title
+            detailsViewController.details = newsList[indexPath.section].details
+            detailsViewController.picturesname = cell.FirstCellImage.image
+            self.present(detailsViewController, animated: true)
+        }
+            
+        else {
+            let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
+            detailsViewController.pics = newsList[indexPath.section].pics as? [String]
+            detailsViewController.picturesname = cell.previewImage.image
             detailsViewController.newsTitle = newsList[indexPath.section].title
             detailsViewController.details = newsList[indexPath.section].details
             self.present(detailsViewController, animated: true)
-        }
-        else {
-            let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
-        detailsViewController.previewImage = cell.previewImage.image
-        detailsViewController.newsTitle = newsList[indexPath.section].title
-        detailsViewController.details = newsList[indexPath.section].details
-        self.present(detailsViewController, animated: true)
         }
     }
     // MARK:Retrive()
@@ -337,10 +341,12 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         let details = document.data()["details"] as? String
                         let imagename = document.data()["imagename"] as? String
                         let time = document.data()["time"] as? String
+                        let pics = document.data()["pics"] as? [String]
                         message.details = details
                         message.title = title
                         message.imagename = imagename
                         message.time = time
+                        message.pics = pics as NSObject?
                         self.newsList.insert(message, at: 0)
                         
                         

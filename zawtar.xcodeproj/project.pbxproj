@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1305AE3320AE101200C4ED9E /* cacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1305AE3220AE101200C4ED9E /* cacheImage.swift */; };
 		13135980209DBFC60067851F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1313597F209DBFC60067851F /* GoogleService-Info.plist */; };
+		133287DA20BC57C8003E872B /* PicturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133287D920BC57C8003E872B /* PicturesCell.swift */; };
+		133287DE20BC581A003E872B /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133287DD20BC581A003E872B /* DetailCell.swift */; };
+		133287E020BC582F003E872B /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133287DF20BC582F003E872B /* TitleCell.swift */; };
 		1333B54120B1D33200A397F0 /* NewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54020B1D33200A397F0 /* NewCustomCell.swift */; };
 		1333B54320B1D3A400A397F0 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54220B1D3A400A397F0 /* GuideViewController.swift */; };
 		1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B54C20B4BBD900A397F0 /* FirstCell.swift */; };
@@ -22,9 +25,6 @@
 		137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */; };
 		137F1B4820AB162300C8A379 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4720AB162300C8A379 /* CustomCell.swift */; };
 		13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A0DC2097CD5E00D06104 /* Assets.xcassets */; };
-		13E50CE220B8C58C003C6864 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE120B8C58C003C6864 /* MainVC.swift */; };
-		13E50CE620B8C6A8003C6864 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE520B8C6A8003C6864 /* TableViewCell.swift */; };
-		13E50CE820B8CBE3003C6864 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */; };
 		1BA4B9926584B5476F2050A5 /* Pods_zawtar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,9 @@
 		1305AE3220AE101200C4ED9E /* cacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cacheImage.swift; sourceTree = "<group>"; };
 		1313597F209DBFC60067851F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Clima-iOS11-master/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		132CECDF209B5DBD004FD0A5 /* zawtar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zawtar.entitlements; sourceTree = "<group>"; };
+		133287D920BC57C8003E872B /* PicturesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCell.swift; sourceTree = "<group>"; };
+		133287DD20BC581A003E872B /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		133287DF20BC582F003E872B /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		1333B54020B1D33200A397F0 /* NewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomCell.swift; sourceTree = "<group>"; };
 		1333B54220B1D3A400A397F0 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		1333B54C20B4BBD900A397F0 /* FirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
@@ -47,9 +50,6 @@
 		137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		137F1B4720AB162300C8A379 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		13A4A0DC2097CD5E00D06104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/Simple-news-app-for-iOS-master/NewsApp/Main Files/Assets.xcassets"; sourceTree = "<group>"; };
-		13E50CE120B8C58C003C6864 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		13E50CE520B8C6A8003C6864 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zawtar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC4486EBA7A4BD38B741561 /* Pods-zawtar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.debug.xcconfig"; sourceTree = "<group>"; };
 		670C726929F851D805787333 /* Pods-zawtar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.release.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				136AF6EC2097270B00E2F20C /* DetailsViewController.swift */,
+				133287D920BC57C8003E872B /* PicturesCell.swift */,
+				133287DD20BC581A003E872B /* DetailCell.swift */,
+				133287DF20BC582F003E872B /* TitleCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -109,9 +112,6 @@
 		136AF6CE20970E1F00E2F20C = {
 			isa = PBXGroup;
 			children = (
-				13E50CE720B8CBE3003C6864 /* CollectionViewCell.swift */,
-				13E50CE520B8C6A8003C6864 /* TableViewCell.swift */,
-				13E50CE120B8C58C003C6864 /* MainVC.swift */,
 				136AF6D920970E1F00E2F20C /* zawtar */,
 				136AF6D820970E1F00E2F20C /* Products */,
 				E70E0A405FDBE7E3AAEA5EEF /* Pods */,
@@ -309,17 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E50CE620B8C6A8003C6864 /* TableViewCell.swift in Sources */,
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
-				13E50CE220B8C58C003C6864 /* MainVC.swift in Sources */,
 				137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */,
+				133287DE20BC581A003E872B /* DetailCell.swift in Sources */,
 				1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */,
 				1305AE3320AE101200C4ED9E /* cacheImage.swift in Sources */,
+				133287DA20BC57C8003E872B /* PicturesCell.swift in Sources */,
 				1333B54120B1D33200A397F0 /* NewCustomCell.swift in Sources */,
 				136973F920A4DC1E009B605A /* WeatherDataModel.swift in Sources */,
+				133287E020BC582F003E872B /* TitleCell.swift in Sources */,
 				1333B54320B1D3A400A397F0 /* GuideViewController.swift in Sources */,
 				1369742E20A8C7C1009B605A /* DataModel.xcdatamodeld in Sources */,
-				13E50CE820B8CBE3003C6864 /* CollectionViewCell.swift in Sources */,
 				136AF6DB20970E1F00E2F20C /* AppDelegate.swift in Sources */,
 				137F1B4820AB162300C8A379 /* CustomCell.swift in Sources */,
 				136AF6ED2097270B00E2F20C /* DetailsViewController.swift in Sources */,
@@ -473,7 +473,10 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
@@ -494,7 +497,10 @@
 				DEVELOPMENT_TEAM = 6CUTBTBR28;
 				INFOPLIST_FILE = zawtar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kassem-abboud.zawtar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "zawtar-Bridging-Header.h";
