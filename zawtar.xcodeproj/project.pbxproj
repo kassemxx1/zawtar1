@@ -25,6 +25,7 @@
 		137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */; };
 		137F1B4820AB162300C8A379 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F1B4720AB162300C8A379 /* CustomCell.swift */; };
 		13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A0DC2097CD5E00D06104 /* Assets.xcassets */; };
+		13DAAB3120BF4F200088AC5F /* ImageNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DAAB3020BF4F200088AC5F /* ImageNameCell.swift */; };
 		1BA4B9926584B5476F2050A5 /* Pods_zawtar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		137F1B4520AB14B900C8A379 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		137F1B4720AB162300C8A379 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		13A4A0DC2097CD5E00D06104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/Simple-news-app-for-iOS-master/NewsApp/Main Files/Assets.xcassets"; sourceTree = "<group>"; };
+		13DAAB3020BF4F200088AC5F /* ImageNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNameCell.swift; sourceTree = "<group>"; };
 		41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zawtar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC4486EBA7A4BD38B741561 /* Pods-zawtar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.debug.xcconfig"; sourceTree = "<group>"; };
 		670C726929F851D805787333 /* Pods-zawtar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zawtar.release.xcconfig"; path = "Pods/Target Support Files/Pods-zawtar/Pods-zawtar.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				133287D920BC57C8003E872B /* PicturesCell.swift */,
 				133287DD20BC581A003E872B /* DetailCell.swift */,
 				133287DF20BC582F003E872B /* TitleCell.swift */,
+				13DAAB3020BF4F200088AC5F /* ImageNameCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */,
 				133287DE20BC581A003E872B /* DetailCell.swift in Sources */,
 				1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */,
+				13DAAB3120BF4F200088AC5F /* ImageNameCell.swift in Sources */,
 				1305AE3320AE101200C4ED9E /* cacheImage.swift in Sources */,
 				133287DA20BC57C8003E872B /* PicturesCell.swift in Sources */,
 				1333B54120B1D33200A397F0 /* NewCustomCell.swift in Sources */,

@@ -28,8 +28,9 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
 //    var previewImage: UIImage?
     var newsTitle: String?
     var details: String?
-    var picturesname : UIImage?
+    var picturesname : String?
     var pics:[String]?
+    var numb : Int?
 //    var section: String?
 //    var date: String?
 //
@@ -42,18 +43,17 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
       //  fillNewsData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if pics?.count == 0 {
-            return 2
-        }
-        else {
-            return 2 + (pics?.count)!
-        }
+        return 3 + numb!
+        
     }
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100
+            return 200
         }
         else if indexPath.row == 1 {
+            return 100
+        }
+        else if indexPath.row == 2 {
             return UITableViewAutomaticDimension
         }
         else {
@@ -62,24 +62,36 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ImageNameCell") as! ImageNameCell
+                cell.ImageName.loadImageUsingCacheWithUrlString(urlString: picturesname!)
+                return cell
+            }
+            else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleCell
                 cell.titlecel.text = newsTitle
                 return cell
             }
-            else if indexPath.row == 1 {
+            else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! DetailCell
                 cell.detailCell.text = details
                 return cell
             }
-            else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath) as! PicturesCell
-                let image = pics![indexPath.row - 2]
+
+            
+            else  {
+               
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath) as! PicturesCell
+                    let image = pics![indexPath.row - 3]
                     
                     cell.picturesCell.loadImageUsingCacheWithUrlString(urlString: image )
                     
+                    
+                    return cell
                 
-                return cell
+                
+                
             }
+       
         }
  
     

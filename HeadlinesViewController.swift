@@ -65,6 +65,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     var pageNumber = 0
     var token: Int64?
     var newsList :[Message] = [Message]()
+    var numberOfPics : Int = 0
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     //var refreshControl = UIRefreshControl()
@@ -281,17 +282,20 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
 
         if indexPath.section == 0 {
             let cell = tableView.cellForRow(at: indexPath) as! FirstCell
+            detailsViewController.numb = Int(newsList[indexPath.section].numbOfPics)
             detailsViewController.pics = newsList[indexPath.section].pics as? [String]
             detailsViewController.newsTitle = newsList[indexPath.section].title
             detailsViewController.details = newsList[indexPath.section].details
-            detailsViewController.picturesname = cell.FirstCellImage.image
+            detailsViewController.picturesname = newsList[indexPath.section].imagename
             self.present(detailsViewController, animated: true)
         }
             
         else {
             let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
+            detailsViewController.numb = Int(newsList[indexPath.section].numbOfPics)
+            
             detailsViewController.pics = newsList[indexPath.section].pics as? [String]
-            detailsViewController.picturesname = cell.previewImage.image
+            detailsViewController.picturesname = newsList[indexPath.section].imagename
             detailsViewController.newsTitle = newsList[indexPath.section].title
             detailsViewController.details = newsList[indexPath.section].details
             self.present(detailsViewController, animated: true)
@@ -342,13 +346,21 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         let imagename = document.data()["imagename"] as? String
                         let time = document.data()["time"] as? String
                         let pics = document.data()["pics"] as? [String]
+                        if pics?.count == nil {
+                            self.numberOfPics = 0
+                        }
+                        else {
+                            self.numberOfPics = (pics?.count)!
+                        }
+                       print("kasse kassem kassem \(self.numberOfPics)")
                         message.details = details
                         message.title = title
                         message.imagename = imagename
                         message.time = time
                         message.pics = pics as NSObject?
-                        self.newsList.insert(message, at: 0)
+                        message.numbOfPics = Int16(self.numberOfPics)
                         
+                        self.newsList.insert(message, at: 0)
                         
                        self.headlinesTableView.reloadData()
                         self.saveItems()

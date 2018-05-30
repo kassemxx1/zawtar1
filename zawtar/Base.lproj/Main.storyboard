@@ -658,8 +658,30 @@
                                 <rect key="frame" x="20" y="76" width="335" height="581"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageNameCell" rowHeight="120" id="f5A-TB-y0B" customClass="ImageNameCell" customModule="zawtar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f5A-TB-y0B" id="027-mb-hNC">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KdB-oC-S7V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="119.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KdB-oC-S7V" firstAttribute="top" secondItem="027-mb-hNC" secondAttribute="top" id="3fo-Eg-Evp"/>
+                                                <constraint firstAttribute="trailing" secondItem="KdB-oC-S7V" secondAttribute="trailing" id="PMH-2E-1Dz"/>
+                                                <constraint firstAttribute="bottom" secondItem="KdB-oC-S7V" secondAttribute="bottom" id="bLu-RN-HOg"/>
+                                                <constraint firstItem="KdB-oC-S7V" firstAttribute="leading" secondItem="027-mb-hNC" secondAttribute="leading" id="cv0-2f-cr6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ImageName" destination="KdB-oC-S7V" id="7Ei-3I-fbL"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="40" id="3hb-Yz-nuK" customClass="TitleCell" customModule="zawtar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="40"/>
+                                        <rect key="frame" x="0.0" y="148" width="335" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hb-Yz-nuK" id="SDB-aE-0dX">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="39.5"/>
@@ -690,7 +712,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="100" id="n3J-Yj-mZD" customClass="DetailCell" customModule="zawtar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="335" height="100"/>
+                                        <rect key="frame" x="0.0" y="188" width="335" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n3J-Yj-mZD" id="0wO-lI-aG9">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="99.5"/>
@@ -715,7 +737,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pictureCell" rowHeight="194" id="ZBB-EP-q6J" customClass="PicturesCell" customModule="zawtar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168" width="335" height="194"/>
+                                        <rect key="frame" x="0.0" y="288" width="335" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBB-EP-q6J" id="nQW-MY-yGt">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="193.5"/>
