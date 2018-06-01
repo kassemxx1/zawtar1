@@ -66,6 +66,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     var token: Int64?
     var newsList :[Message] = [Message]()
     var numberOfPics : Int = 0
+    var numberOfVideos : Int = 0
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     //var refreshControl = UIRefreshControl()
@@ -279,27 +280,16 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
-
-        if indexPath.section == 0 {
-            let cell = tableView.cellForRow(at: indexPath) as! FirstCell
+        
             detailsViewController.numb = Int(newsList[indexPath.section].numbOfPics)
-            detailsViewController.pics = newsList[indexPath.section].pics as? [String]
-            detailsViewController.newsTitle = newsList[indexPath.section].title
-            detailsViewController.details = newsList[indexPath.section].details
-            detailsViewController.picturesname = newsList[indexPath.section].imagename
-            self.present(detailsViewController, animated: true)
-        }
-            
-        else {
-            let cell = tableView.cellForRow(at: indexPath) as! HeadlinesCell
-            detailsViewController.numb = Int(newsList[indexPath.section].numbOfPics)
-            
+            detailsViewController.numbOfvideos = Int(newsList[indexPath.section].numbOfVideo)
             detailsViewController.pics = newsList[indexPath.section].pics as? [String]
             detailsViewController.picturesname = newsList[indexPath.section].imagename
             detailsViewController.newsTitle = newsList[indexPath.section].title
             detailsViewController.details = newsList[indexPath.section].details
+            detailsViewController.videos = newsList[indexPath.section].videos as? [String]
             self.present(detailsViewController, animated: true)
-        }
+        
     }
     // MARK:Retrive()
  /*   func retrieve() {
@@ -345,6 +335,14 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         let details = document.data()["details"] as? String
                         let imagename = document.data()["imagename"] as? String
                         let time = document.data()["time"] as? String
+                        let videos = document.data()["videos"] as? [String]
+                        if videos?.count == nil {
+                            self.numberOfVideos = 0
+                        }
+                        else {
+                            self.numberOfVideos = (videos?.count)!
+                        }
+                        
                         let pics = document.data()["pics"] as? [String]
                         if pics?.count == nil {
                             self.numberOfPics = 0
@@ -352,13 +350,15 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
                         else {
                             self.numberOfPics = (pics?.count)!
                         }
-                       print("kasse kassem kassem \(self.numberOfPics)")
+                    
                         message.details = details
                         message.title = title
                         message.imagename = imagename
                         message.time = time
                         message.pics = pics as NSObject?
                         message.numbOfPics = Int16(self.numberOfPics)
+                        message.videos = videos as NSObject?
+                        message.numbOfVideo = Int16(self.numberOfVideos)
                         
                         self.newsList.insert(message, at: 0)
                         

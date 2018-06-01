@@ -109,6 +109,7 @@ class ArchiveViewController: UIViewController ,UITableViewDelegate,UITableViewDa
                     let videoCode = youtubeLink + Code!
                     new.videoCode = videoCode
                     new.videoTitle = document.data()["videoTitle"] as? String
+                    
                     self.VideoArray.insert(new, at: 0)
                     print(self.VideoArray)
                     self.saveItems()

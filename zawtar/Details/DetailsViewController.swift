@@ -31,6 +31,8 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var picturesname : String?
     var pics:[String]?
     var numb : Int?
+    var videos:[String]?
+    var numbOfvideos : Int?
 //    var section: String?
 //    var date: String?
 //
@@ -43,7 +45,7 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
       //  fillNewsData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 + numb!
+        return (3 + (numb)! + (numbOfvideos)!)
         
     }
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,39 +62,56 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return 200
         }
     }
+    
+    
+    //********************************************
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ImageNameCell") as! ImageNameCell
-                cell.ImageName.loadImageUsingCacheWithUrlString(urlString: picturesname!)
-                return cell
-            }
-            else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleCell
-                cell.titlecel.text = newsTitle
-                return cell
-            }
-            else if indexPath.row == 2 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! DetailCell
-                cell.detailCell.text = details
-                return cell
-            }
-
-            
-            else  {
-               
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath) as! PicturesCell
-                    let image = pics![indexPath.row - 3]
-                    
-                    cell.picturesCell.loadImageUsingCacheWithUrlString(urlString: image )
-                    
-                    
+           
+             if  indexPath.row <= (numb! + 2) {
+                if indexPath.row == 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "ImageNameCell") as! ImageNameCell
+                    cell.ImageName.loadImageUsingCacheWithUrlString(urlString: picturesname!)
                     return cell
-                
-                
-                
-            }
+                }
+                else if indexPath.row == 1 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleCell
+                    cell.titlecel.text = newsTitle
+                    return cell
+                }
+                else if indexPath.row == 2 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! DetailCell
+                    cell.detailCell.text = details
+                    return cell
+                }
+                else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath) as! PicturesCell
+            
+                        let image = pics![indexPath.row - 3]
+                        cell.picturesCell.loadImageUsingCacheWithUrlString(urlString: image)
+                    return cell
+                }
+                    }
+             
+            else {
+                            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+                            
+                            let code = "https://www.youtube.com/embed/" + videos![indexPath.row - (3 + numb!) ]
+                            let url = URL(string: code)
+                            cell.video.loadRequest(URLRequest(url: url!))
+                           
+                             return cell
+                        }
+                        
+            
+                    }
+            
+    
+         
+    
+           
+   //*******************************************************
        
-        }
+    
  
     
 
