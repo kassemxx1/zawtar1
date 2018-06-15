@@ -10,16 +10,10 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    
-
-    
-    
     
     @IBOutlet weak var detailsTable: UITableView!
-    
-    
-//
+
+
 //    @IBOutlet weak var previewImageView: UIImageView!
 //
 //    @IBOutlet weak var titleLabel: UILabel!
@@ -33,6 +27,7 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var numb : Int?
     var videos:[String]?
     var numbOfvideos : Int?
+    var date : String?
 //    var section: String?
 //    var date: String?
 //
@@ -50,7 +45,7 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 200
+            return UITableViewAutomaticDimension
         }
         else if indexPath.row == 1 {
             return 100
@@ -59,7 +54,7 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return UITableViewAutomaticDimension
         }
         else {
-            return 200
+            return UITableViewAutomaticDimension
         }
     }
     
@@ -81,6 +76,7 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 else if indexPath.row == 2 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! DetailCell
                     cell.detailCell.text = details
+                    cell.DateDetails.text = date
                     return cell
                 }
                 else{
@@ -124,6 +120,19 @@ class DetailsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return (otherGestureRecognizer is UIScreenEdgePanGestureRecognizer)
     }
 }
 

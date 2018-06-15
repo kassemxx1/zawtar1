@@ -11,4 +11,6 @@ class FirstCell : UITableViewCell {
     @IBOutlet weak var FirstCellImage: UIImageView!
     
     @IBOutlet weak var FirstCellTItle: UILabel!
+    
+    @IBOutlet weak var FirstCellDate: UILabel!
 }

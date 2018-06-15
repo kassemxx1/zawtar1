@@ -65,7 +65,8 @@ class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                         let numbOfCompany = document.data()["numbOfCompany"] as? Double
                         guide.nameOfCompany = nameOfCompany
                         guide.numbOfCompany = numbOfCompany!
-                        print(guide)
+                      
+                     
                         self.guide.insert(guide, at: 0)
                         
                         //   self.saveItems()

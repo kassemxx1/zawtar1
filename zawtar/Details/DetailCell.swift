@@ -13,5 +13,6 @@ class DetailCell: UITableViewCell {
 
     @IBOutlet weak var detailCell: UILabel!
     
+    @IBOutlet weak var DateDetails: UILabel!
     
 }

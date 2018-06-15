@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SVProgressHUD
-import CoreLocation
 import Alamofire
 import SwiftyJSON
 import Foundation
@@ -24,7 +23,7 @@ class HeadlinesCell: UITableViewCell{
     //@IBOutlet weak var details: UILabel!
 //@IBOutlet weak var date: UILabel!
 }
-class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
+class HeadlinesViewController: UIViewController  {
     @IBOutlet weak var ViewConstrain: NSLayoutConstraint!
     
     @IBOutlet weak var mainView: UIView!
@@ -37,9 +36,9 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     @IBOutlet weak var SlideView: UIView!
     
 
+
     @IBAction func Refresh(_ sender: Any) {
         refresh()
-        
     }
     @IBAction func Menu(_ sender: Any) {
        
@@ -75,7 +74,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?"
     let APP_ID = "1db71a987db219ef67ae0d322b4a133e"
     //TODO: Declare instance variables here
-    let locationmanager = CLLocationManager()
+    
     let Datamodule = WeatherDataModel()
     //Pre-linked IBOutlets
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -83,7 +82,9 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     //MARK: - Networking
     /***************************************************************/
     //Write the getWeatherData method here:
+    let params : [String : String] = ["lat" : "33.3224970" , "lon" : "35.4770910" ,"appId" : "1db71a987db219ef67ae0d322b4a133e"]
     func getweatherdata(url : String , parameter : [String :String]) {
+      
         Alamofire.request(url + "/get" , parameters: parameter).responseJSON {
             response in
             if response.result.isSuccess {
@@ -116,17 +117,7 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
     //MARK: - Location Manager Delegate Methods
     /***************************************************************/
     //Write the didUpdateLocations method here:
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[locations.count - 1]
-        if (location.horizontalAccuracy > 0) {
-            locationmanager.stopUpdatingLocation()
-            locationmanager.delegate = nil
-            let latitude = String(location.coordinate.latitude)
-            let longitude = String(location.coordinate.longitude)
-            let params : [String : String] = ["lat" : latitude , "lon" : longitude ,"appId" :APP_ID]
-            getweatherdata(url: WEATHER_URL, parameter: params)
-        }
-    }
+ 
     override func viewDidLoad() {
         //TODO:Set up the location manager here.
     
@@ -136,13 +127,10 @@ class HeadlinesViewController: UIViewController , CLLocationManagerDelegate  {
         SlideView.layer.shadowOffset = CGSize(width: 5, height: 0)
         ViewConstrain.constant = -200
         
+        getweatherdata(url: WEATHER_URL, parameter: params)
         
         
-        
-        locationmanager.delegate = self
-        locationmanager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationmanager.requestWhenInUseAuthorization()
-        locationmanager.startUpdatingLocation()
+
         
         super.viewDidLoad()
         retrieve()
@@ -237,6 +225,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
           
             let cell =  tableView.dequeueReusableCell(withIdentifier: "FirstCell") as! FirstCell
             cell.FirstCellTItle.text = newsList[indexPath.section].title
+            cell.FirstCellDate.text = newsList[indexPath.section].time
             if let image = newsList[indexPath.section].imagename{
                 
                 
@@ -288,6 +277,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
             detailsViewController.newsTitle = newsList[indexPath.section].title
             detailsViewController.details = newsList[indexPath.section].details
             detailsViewController.videos = newsList[indexPath.section].videos as? [String]
+            detailsViewController.date = newsList[indexPath.section].time
             self.present(detailsViewController, animated: true)
         
     }
