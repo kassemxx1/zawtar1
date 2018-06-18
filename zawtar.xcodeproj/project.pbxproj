@@ -29,6 +29,7 @@
 		1381D0FA20CCACF400FDF4D1 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1381D0F920CCACF400FDF4D1 /* MediaTableViewCell.swift */; };
 		1381D0FC20D46F7F00FDF4D1 /* HedaerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1381D0FB20D46F7F00FDF4D1 /* HedaerCollection.swift */; };
 		13A4A0DD2097CD5E00D06104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A0DC2097CD5E00D06104 /* Assets.xcassets */; };
+		13B147E420D8444B00741104 /* imageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B147E320D8444B00741104 /* imageViewController.swift */; };
 		13DAAB3120BF4F200088AC5F /* ImageNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DAAB3020BF4F200088AC5F /* ImageNameCell.swift */; };
 		13DAAB3320C051FA0088AC5F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DAAB3220C051FA0088AC5F /* VideoCell.swift */; };
 		1BA4B9926584B5476F2050A5 /* Pods_zawtar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */; };
@@ -60,6 +61,7 @@
 		1381D0F920CCACF400FDF4D1 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		1381D0FB20D46F7F00FDF4D1 /* HedaerCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedaerCollection.swift; sourceTree = "<group>"; };
 		13A4A0DC2097CD5E00D06104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/Simple-news-app-for-iOS-master/NewsApp/Main Files/Assets.xcassets"; sourceTree = "<group>"; };
+		13B147E320D8444B00741104 /* imageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewController.swift; sourceTree = "<group>"; };
 		13DAAB3020BF4F200088AC5F /* ImageNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNameCell.swift; sourceTree = "<group>"; };
 		13DAAB3220C051FA0088AC5F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		41E6A20B18C504EAFE177C18 /* Pods_zawtar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zawtar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				1381D0F320CC92E500FDF4D1 /* CollectionViewController.swift */,
 				1381D0F520CC94B000FDF4D1 /* ImageCollectionViewCell.swift */,
 				1381D0F920CCACF400FDF4D1 /* MediaTableViewCell.swift */,
+				13B147E320D8444B00741104 /* imageViewController.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				136AF6DD20970E1F00E2F20C /* HeadlinesViewController.swift in Sources */,
 				13DAAB3320C051FA0088AC5F /* VideoCell.swift in Sources */,
 				137F1B4620AB14B900C8A379 /* ArchiveViewController.swift in Sources */,
+				13B147E420D8444B00741104 /* imageViewController.swift in Sources */,
 				133287DE20BC581A003E872B /* DetailCell.swift in Sources */,
 				1333B54D20B4BBD900A397F0 /* FirstCell.swift in Sources */,
 				13DAAB3120BF4F200088AC5F /* ImageNameCell.swift in Sources */,

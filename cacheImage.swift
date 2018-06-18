@@ -40,12 +40,6 @@ extension UIImageView {
         
        
         }
-extension UIImageView {
-    func setRounded() {
-        self.layer.cornerRadius = 20
-        self.layer.masksToBounds = true
-        
-    }
-}
+
 
 

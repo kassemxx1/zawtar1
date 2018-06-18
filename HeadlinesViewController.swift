@@ -236,7 +236,7 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! HeadlinesCell
  
         
-        cell.previewImage.setRounded()
+      
         cell.title.text = newsList[indexPath.section].title
         cell.timeLabel.text = newsList[indexPath.section].time
         

@@ -31,7 +31,7 @@ extension MediaTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.images.getRounded()
+        
         cell.images.loadImageUsingCacheWithUrlString(urlString: pics[indexPath.row])
     
         
@@ -46,15 +46,15 @@ extension MediaTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ImageViewController = mainStoryboard.instantiateViewController(withIdentifier: "imageViewController") as! imageViewController
+       ImageViewController.bigimagename = pics[indexPath.row]
+        self.window?.rootViewController?.present(ImageViewController, animated: true)
+    }
 
     
     
     
 }
-extension UIImageView {
-    func getRounded() {
-        self.layer.cornerRadius = 30
-        self.layer.masksToBounds = true
-        
-    }
-}
+
