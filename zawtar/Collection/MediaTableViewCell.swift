@@ -20,8 +20,7 @@ class MediaTableViewCell: UITableViewCell {
         super.awakeFromNib()
         Collection.delegate = self
         Collection.dataSource = self
-        Collection.reloadData()
-     
+      Collection.reloadData()
     }
     
 }
@@ -32,7 +31,7 @@ extension MediaTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        print(pics)
+        cell.images.getRounded()
         cell.images.loadImageUsingCacheWithUrlString(urlString: pics[indexPath.row])
     
         
@@ -47,8 +46,15 @@ extension MediaTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+
     
     
     
-    
+}
+extension UIImageView {
+    func getRounded() {
+        self.layer.cornerRadius = 30
+        self.layer.masksToBounds = true
+        
+    }
 }

@@ -37,6 +37,7 @@ class CollectionViewController: UIViewController,UITableViewDelegate,UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MediaTableViewCell") as! MediaTableViewCell
+        
         cell.pics = newsList[indexPath.row].pics as! [String]
 //        let numb = String(int_fast64_t(newsList[indexPath.row].phoneNumber))
 //        cell.numberLabel.text = "هاتف : \(numb)"
@@ -44,6 +45,7 @@ class CollectionViewController: UIViewController,UITableViewDelegate,UITableView
 
         return cell
     }
+    
     func retrieve() {
         SVProgressHUD.show()
         let db = Firestore.firestore()
@@ -61,7 +63,7 @@ class CollectionViewController: UIViewController,UITableViewDelegate,UITableView
                         let phoneNumber = document.data()["phoneNumber"] as? Double
                         let name = document.data()["name"] as? String
                         let pics = document.data()["pics"] as? [String]
-                        if pics?.count == nil {
+                        if pics?.count == nil { 
                             self.numberOfPics = 0
                         }
                         else {

@@ -4,6 +4,16 @@
         <attribute name="nameOfCompany" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numbOfCompany" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="Header" representedClassName="Header" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numbOfPics" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numbOfVideo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pics" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videos" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="Message" representedClassName=".Message" syncable="YES" codeGenerationType="class">
         <attribute name="details" attributeType="String" syncable="YES"/>
         <attribute name="done" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" storedInTruthFile="YES" syncable="YES"/>
@@ -28,7 +38,8 @@
     <elements>
         <element name="Company" positionX="45" positionY="45" width="128" height="75"/>
         <element name="Message" positionX="-324" positionY="-216" width="128" height="180"/>
-        <element name="VideoContent" positionX="106" positionY="27" width="128" height="75"/>
         <element name="Promotion" positionX="-117" positionY="-72" width="128" height="105"/>
+        <element name="VideoContent" positionX="106" positionY="27" width="128" height="75"/>
+        <element name="Header" positionX="-99" positionY="-54" width="128" height="165"/>
     </elements>
 </model>

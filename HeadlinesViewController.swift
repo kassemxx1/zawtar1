@@ -129,6 +129,7 @@ class HeadlinesViewController: UIViewController  {
         
         getweatherdata(url: WEATHER_URL, parameter: params)
         
+    
         
 
         
@@ -224,13 +225,8 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
           
             let cell =  tableView.dequeueReusableCell(withIdentifier: "FirstCell") as! FirstCell
-            cell.FirstCellTItle.text = newsList[indexPath.section].title
-            cell.FirstCellDate.text = newsList[indexPath.section].time
-            if let image = newsList[indexPath.section].imagename{
-                
-                
-                cell.FirstCellImage.loadImageUsingCacheWithUrlString(urlString: image)
-            }
+            
+            
             
             return cell
         }
