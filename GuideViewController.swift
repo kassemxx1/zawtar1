@@ -136,6 +136,10 @@ class GuideViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
        self.GuideTable.reloadData()
     }
+    @IBAction func doneButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 

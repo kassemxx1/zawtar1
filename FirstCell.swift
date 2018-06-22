@@ -13,7 +13,7 @@ class FirstCell : UITableViewCell {
 
     
     @IBOutlet weak var SlideCollection: UICollectionView!
-
+    
     var HeaderNews : [Header] = [Header]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var numberOfPics : Int = 0
@@ -24,14 +24,17 @@ class FirstCell : UITableViewCell {
         SlideCollection.delegate = self
         SlideCollection.dataSource = self
         SlideCollection.reloadData()
+        
         Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: true)
         
         func scrollAutomatically(_ timer: Timer) {
             
         }
+    
         
         
     }
+    
     
     @objc func scrollAutomatically(_ timer1: Timer) {
         
@@ -125,8 +128,8 @@ class FirstCell : UITableViewCell {
     
     
 }
-extension FirstCell : UICollectionViewDataSource,UICollectionViewDelegate {
-    
+extension FirstCell : UICollectionViewDataSource,UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout{
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -136,6 +139,7 @@ extension FirstCell : UICollectionViewDataSource,UICollectionViewDelegate {
         if let image = HeaderNews[indexPath.row].imagename{
             
             
+         
             cell.headerImage.loadImageUsingCacheWithUrlString(urlString: image )
         }
         
@@ -165,8 +169,11 @@ extension FirstCell : UICollectionViewDataSource,UICollectionViewDelegate {
         detailsViewController.date = HeaderNews[indexPath.row].time
         self.window?.rootViewController?.present(detailsViewController, animated: true)
     }
-
-   
-
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+       return CGSize(width: SlideCollection.frame.width, height: SlideCollection.frame.height)
+    }
 }
 

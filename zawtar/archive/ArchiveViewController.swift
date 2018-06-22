@@ -123,5 +123,9 @@ class ArchiveViewController: UIViewController ,UITableViewDelegate,UITableViewDa
     @objc func refresh(sender:AnyObject) {
         self.videTableView.reloadData()
     }
+    
+    @IBAction func doneButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 

@@ -15,4 +15,7 @@ class HedaerCollection: UICollectionViewCell {
     @IBOutlet weak var HeaderTitle: UILabel!
     
     @IBOutlet weak var HeaderDate: UILabel!
+
+
 }
+
